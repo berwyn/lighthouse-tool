@@ -52,6 +52,8 @@ url ??= process.env.LIGHTHOUSE_TOOL_URL
 iteration ??= 4
 name ??= 'lighthouse'
 
+const warmupCount = process.env.LIGHTHOUSE_TOOL_WARMUP ?? 0;
+
 if (!url) {
   console.error('No url provided!')
   console.error('Usage: lighthouse-tool <url> [iteration] [name]')
@@ -59,7 +61,11 @@ if (!url) {
 }
 
 const runner = async () => {
-  let index = 0
+  for await (const _ of generateReports(url, warmupCount)) {
+    // do nothing, we just want to warmup the environment
+  }
+
+  let index = 0;
   for await (const report of generateReports(url, iteration)) {
     await writeFileAsync(`${name}-${++index}.json`, JSON.stringify(report))
   }
