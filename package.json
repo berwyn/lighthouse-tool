@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.mjs",
+  "type": "module",
   "engines": {
     "node": ">= 15.0.0",
     "npm": ">= 7.4.0"
@@ -18,8 +19,8 @@
   "author": "berwyn <berwyn.codeweaver@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "chrome-launcher": "^0.13.4",
-    "lighthouse": "^7.0.1"
+    "chrome-launcher": "^0.14.0",
+    "lighthouse": "^8.1.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.12.1",
@@ -29,6 +30,9 @@
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1"
+    "eslint-plugin-promise": "^5.1.0"
+  },
+  "volta": {
+    "node": "16.5.0"
   }
 }
